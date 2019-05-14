@@ -154,63 +154,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
-
-        // Setting onclick event listener for the map
-//        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-//
-//            @Override
-//            public void onMapClick(LatLng point) {
-//
-//                // Already two locations
-//                if (MarkerPoints.size() > 1) {
-//                    MarkerPoints.clear();
-//                    mMap.clear();
-//                }
-//
-//                // Adding new item to the ArrayList
-//                MarkerPoints.add(point);
-//
-//                // Creating MarkerOptions
-//                MarkerOptions options = new MarkerOptions();
-//
-//                // Setting the position of the marker
-//                options.position(point);
-//
-//                /**
-//                 * For the start location, the color of marker is GREEN and
-//                 * for the end location, the color of marker is RED.
-//                 */
-//                if (MarkerPoints.size() == 1) {
-//                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-//                } else if (MarkerPoints.size() == 2) {
-//                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//                }
-//
-//
-//                // Add new marker to the Google Map Android API V2
-//                mMap.addMarker(options);
-//
-//                // Checks, whether start and end locations are captured
-//                if (MarkerPoints.size() >= 2) {
-//                    LatLng origin = MarkerPoints.get(0);
-//                    LatLng dest = MarkerPoints.get(1);
-//
-//                    // Getting URL to the Google Directions API
-//                    String url = getUrl(origin, dest);
-//                    Log.d("onMapClick", url.toString());
-//                    FetchUrl FetchUrl = new FetchUrl();
-//                    String key = "AIzaSyBTpq2aXpU-MsCALXcmCWpNE6-hNZ11mZI";
-//
-//                    // Start downloading json data from Google Directions API
-//                    FetchUrl.execute(url);
-//                    //move map camera
-//                    mMap.moveCamera(CameraUpdateFactory.newLatLng(origin));
-//                    mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-//                }
-//
-//            }
-//        });
-
     }
 
     private String getUrl(LatLng mLastLocation, LatLng place) {
@@ -518,29 +461,3 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 }
 
 
-//    // Initialize the AutocompleteSupportFragment.
-//    AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
-//            getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
-//
-//// Specify the types of place data to return.
-//        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG));
-//
-//// Set up a PlaceSelectionListener to handle the response.
-//                autocompleteFragment.setOnPlaceSelectedListener(new com.google.android.libraries.places.widget.listener.PlaceSelectionListener() {
-//@Override
-//public void onPlaceSelected(@NonNull Place place) {
-//        // TODO: place marker on selected place.
-//        Log.d(TAG,"place:" +place.toString());
-//        mMap.addMarker(new MarkerOptions().position(place.getLatLng()));
-//        //mMap.addPolyline((new PolylineOptions().add(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude(),new LatLng(place.getLatLng().latitude,place.getLatLng().longitude))));
-//        mMap.addPolyline((new PolylineOptions().add(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude()), new LatLng(place.getLatLng().latitude,place.getLatLng().longitude))));
-//
-//        }
-//
-//@Override
-//public void onError(@NonNull Status status) {
-//        // TODO: Handle the error.
-//        Log.i(TAG, "An error occurred: " + status);
-//
-//        }
-//        });
