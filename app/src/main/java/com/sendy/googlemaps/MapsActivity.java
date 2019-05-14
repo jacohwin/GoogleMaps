@@ -111,7 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //
 
                //mMap.addPolyline((new PolylineOptions().add(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude(),new LatLng(place.getLatLng().latitude,place.getLatLng().longitude))));
-               mMap.addPolyline((new PolylineOptions().add(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude()), new LatLng(place.getLatLng().latitude,place.getLatLng().longitude))));
+               //mMap.addPolyline((new PolylineOptions().add(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude()), new LatLng(place.getLatLng().latitude,place.getLatLng().longitude))));
                 //new FetchUrl().execute(mLastLocation,place)
 
                new FetchUrl().execute(getUrl(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude()),new LatLng(place.getLatLng().latitude,place.getLatLng().longitude)));
@@ -216,10 +216,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String getUrl(LatLng mLastLocation, LatLng place) {
 
         // Origin of route
-        String str_origin = "mLastLocation=" + mLastLocation.latitude + "," + mLastLocation.longitude;
+        String str_origin = "origin=" + mLastLocation.latitude + "," + mLastLocation.longitude;
 
         // Destination of route
-        String str_dest = "place=" + place.latitude + "," + place.longitude;
+        String str_dest = "destination=" + place.latitude + "," + place.longitude;
 
 
         // Sensor enabled
@@ -232,8 +232,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String output = "json";
 
         // Building the url to the web service
-       // String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters+"&key=AIzaSyBTpq2aXpU-MsCALXcmCWpNE6-hNZ11mZI";
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters+"&key=AIzaSyBTpq2aXpU-MsCALXcmCWpNE6-hNZ11mZI";
+        //String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
 //ebu test sasawa
         // still incrush
         return url;
@@ -270,7 +270,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //fiti
             //steps za kuweka git ilikuwa?
             //acha tufanye pamoja
-            //go to github.com login kwa a
+            //go to github.com login kwa a  Acha niicheki hapa imekubali kuingia? Wazi nauliza yani
+
             data = sb.toString();
             Log.d("downloadUrl", data.toString());
             br.close();
